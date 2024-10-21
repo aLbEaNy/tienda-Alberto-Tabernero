@@ -1,0 +1,29 @@
+.container-fluid {
+  border: solid 0.2em darkgray;
+  box-shadow: 2%;
+  border-radius: 2%;
+  align-self: center;
+  width: fit-content;
+  padding: 1.5em;
+  margin-top: 3em;
+  background-color: whitesmoke;
+}
+h1 {
+  text-align: center;
+  margin-bottom: 1em;
+  color: darkblue;
+}
+label {
+  margin-right: 2em;
+  color: darkblue;
+}
+input {
+  border-color: whitesmoke;
+
+}
+
+#sub{
+  background-color: darkblue;
+  margin-top: 1.2em;
+
+}
