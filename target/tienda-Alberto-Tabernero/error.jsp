@@ -10,7 +10,7 @@
     <hr>
     <h2>${msjError}</h2>
     <hr>
-    <p><a href="./index.html">Volver al Inicio</a></p>
+    <p><a href="<%=request.getContextPath()%>/index.jsp">Volver al Inicio</a></p>
 
 </body>
 </html>

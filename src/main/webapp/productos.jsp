@@ -66,6 +66,6 @@
     <p><span style="font-weight: bold;">Request attribute:</span> <%= (String)request.getAttribute("mensaje")%></p>
     <p><span style="font-weight: bold;">Context attribute:</span> <%= (String)application.getAttribute("mensaje")%></p>
     <hr>
-    <p><a href="./index.html">Volver al Inicio</a></p>
+    <p><a href="<%=request.getContextPath()%>/index.jsp">Volver al Inicio</a></p>
 </body>
 </html>

@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+    margin: 0%;
+}
+.container{
+    padding: 2em;
+    width: 100vw;
+    height: 100vh;
+}
+h1{
+    padding: 1.5em;
+}
+hr{
+    margin-bottom: 1em;
+}
+li{
+    padding: 1em;
+}
+a{
+    font-size: 1.3em;
+    margin-left: 1em;
+}
+
+.fondo{
+    /*default*/
+    background-color: white;
+    color: black;
+}
+.fondoNegro{
+    background-color: rgb(33, 33, 33);
+    color: white;
+}
+.fondoAzul{
+    background-color: rgb(48, 101, 214);
+    color: white;
+}
+.fondoRosa{
+    background-color: rgb(172, 48, 134);
+    color: white;
+}
+.fondoVerde{
+    background-color: rgb(26, 121, 49);
+    color: white;
+}

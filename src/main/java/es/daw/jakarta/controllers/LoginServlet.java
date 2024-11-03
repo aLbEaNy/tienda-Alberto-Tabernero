@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Optional;
 
+import es.daw.jakarta.services.CookieService;
 import es.daw.jakarta.services.LoginService;
 import es.daw.jakarta.services.LoginServiceImpl;
 import jakarta.servlet.ServletException;
@@ -38,7 +39,7 @@ public class LoginServlet extends HttpServlet {
                 out.println("</title>");
                 out.println("   <body>");
                 out.println("       <h1>Hola "+usernameOpt.get()+" has iniciado sesión con éxito!</h1>");
-                out.println("       <p><a href='index.html'>Volver</a></p>");
+                out.println("       <p><a href='index.jsp'>Volver</a></p>");
                 out.println("       <p><a href='logout'>Logout</a></p>");
                 out.println("   </body>");
                 out.println("</html>");
@@ -46,7 +47,7 @@ public class LoginServlet extends HttpServlet {
      
         }
         else
-            response.sendRedirect("login.html");
+            response.sendRedirect("./login.html");
 
     }
 
@@ -58,6 +59,8 @@ public class LoginServlet extends HttpServlet {
         String login = request.getParameter("login");
         String pwd = request.getParameter("pwd");
 
+        String color = request.getParameter("color");
+
         response.setContentType("text/html;charset=UTF-8");
 
         // 2. Procesarlos
@@ -65,14 +68,19 @@ public class LoginServlet extends HttpServlet {
         if (USERNAME.equals(login) && PASSWORD.equals(pwd)){ // hemos ido a BD y comprobado que existe el usuario
 
             HttpSession session = request.getSession(); 
-            session.setAttribute("username", login);           
-
+            session.setAttribute("username", login);
+            
+            // CREAR COOKIE 
+            CookieService cS = new CookieService();
+            cS.creaCookie("fondo", color, response);
+            
+            
             doGet(request,response);
-
         }
         else{
-            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Lo sentimos no esta autorizado para ingresar a esta página!");
-            //response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
+            request.setAttribute("msjError", "Lo sentimos no estas autorizado para ingresar a esta pagina!");
+            request.getRequestDispatcher("/error.jsp").forward(request, response);
+            
 
         }
  

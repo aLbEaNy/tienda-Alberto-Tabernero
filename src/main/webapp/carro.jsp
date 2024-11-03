@@ -43,6 +43,6 @@
             </table>
         <%}%>
         <hr>
-        <p><a href=".././index.html">Volver al Inicio</a></p><!-- path modificado por la / en el nombre del servlet carro/ver-->
+        <p><a href="<%=request.getContextPath()%>/index.jsp">Volver al Inicio</a></p><!-- path modificado por la / en el nombre del servlet carro/ver-->
 </body>
 </html>

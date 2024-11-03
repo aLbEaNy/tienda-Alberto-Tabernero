@@ -1,13 +1,8 @@
 package es.daw.jakarta.services;
 
 import java.util.Optional;
-
-import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
-
-import java.util.Arrays;
-
 public class LoginServiceImpl implements LoginService{
 
     @Override
