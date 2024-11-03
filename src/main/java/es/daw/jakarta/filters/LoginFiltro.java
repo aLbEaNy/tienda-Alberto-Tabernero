@@ -12,8 +12,6 @@ import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-
 @WebFilter({"/carro/*", "/productos/*"})
 public class LoginFiltro implements Filter{
 
@@ -27,8 +25,11 @@ public class LoginFiltro implements Filter{
         if (username.isPresent()) {
             chain.doFilter(request, response);
         } else {
-            ((HttpServletResponse)response).sendError(HttpServletResponse.SC_UNAUTHORIZED,
-                    "Lo sentimos no estas autorizado para ingresar a esta pagina!");
+            // ((HttpServletResponse)response).sendError(HttpServletResponse.SC_UNAUTHORIZED,
+            //         "Lo sentimos no estas autorizado para ingresar a esta pagina!");
+
+            request.setAttribute("msjError", "Lo sentimos no estas autorizado para ingresar a esta pagina!");
+            request.getRequestDispatcher("/error.jsp").forward(request, response);
         }
     }
     

@@ -4,6 +4,7 @@ es\daw\jakarta\services\ProductService.class
 es\daw\jakarta\controllers\BuscarProductoServlet.class
 es\daw\jakarta\services\ProductServiceImpl.class
 es\daw\jakarta\filters\LoginFiltro.class
+es\daw\jakarta\services\CookieService.class
 es\daw\jakarta\controllers\LogoutServlet.class
 es\daw\jakarta\models\Carro.class
 es\daw\jakarta\services\LoginServiceImpl.class
