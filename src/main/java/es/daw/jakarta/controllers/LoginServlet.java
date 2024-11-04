@@ -1,15 +1,12 @@
 package es.daw.jakarta.controllers;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Optional;
-
 import es.daw.jakarta.services.CookieService;
 import es.daw.jakarta.services.LoginService;
 import es.daw.jakarta.services.LoginServiceImpl;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -59,13 +56,13 @@ public class LoginServlet extends HttpServlet {
         String login = request.getParameter("login");
         String pwd = request.getParameter("pwd");
 
-        String color = request.getParameter("color");
+        String color = request.getParameter("color");//color del fondo 
 
         response.setContentType("text/html;charset=UTF-8");
 
         // 2. Procesarlos
 
-        if (USERNAME.equals(login) && PASSWORD.equals(pwd)){ // hemos ido a BD y comprobado que existe el usuario
+        if (USERNAME.equals(login) && PASSWORD.equals(pwd)){ // simulamos que hemos ido a BD y comprobado que existe el usuario
 
             HttpSession session = request.getSession(); 
             session.setAttribute("username", login);

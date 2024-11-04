@@ -1,5 +1,8 @@
 package es.daw.jakarta.listeners;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 import es.daw.jakarta.models.Carro;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletContextEvent;
@@ -21,7 +24,8 @@ public class AppListener implements ServletContextListener,
         sc = sce.getServletContext();
 
         sc.log("******** inicializando la aplicacion!");
-        sc.setAttribute("mensaje", "algun valor global de la app!");
+        //* sc.setAttribute("mensaje", "algun valor global de la app!");
+        //* Se recupera desde cualquier lugar con: application.getAttribute("mensaje")
 
     }
 
@@ -33,7 +37,8 @@ public class AppListener implements ServletContextListener,
     @Override
     public void requestInitialized(ServletRequestEvent sre) {
         sc.log("******** inicializando el request!");
-        sre.getServletRequest().setAttribute("mensaje", "guardando algun valor para el request");
+        //* sre.getServletRequest().setAttribute("mensaje", "guardando algun valor para el request");
+        //* Se recupera desde el request con: request.getAttribute("mensaje")
     }
 
     @Override
@@ -45,9 +50,21 @@ public class AppListener implements ServletContextListener,
     public void sessionCreated(HttpSessionEvent se) {
         sc.log("******** inicializando la sesion http");
 
-        // En vez de crear el carro en el servlet AgregarCarro
         Carro carro = new Carro();
         se.getSession().setAttribute("carro", carro);
+
+        //* Comprobar cuando inicia sesion admin
+        // if (se.getSession().getAttributeNames("username").equals("admin")){
+
+        // }
+        
+        //* Hora de inicio de la sesion
+        LocalDateTime loginTimeInicio = LocalDateTime.now(); 
+        se.getSession().setAttribute("loginTimeInicio", loginTimeInicio);
+
+        sc.log("####### ADMIN HA INICIADO SESION A LAS "+ loginTimeInicio +" #######");
+
+
     }
 
     @Override
