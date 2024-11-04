@@ -29,6 +29,13 @@ public class Carro {
             items.add(itemCarro);
        }
     }
+    /**
+     * BORRA UN ITEM PASANDOLE UN ID (Long)
+     * @param idProducto
+     */
+    public void removeItem(Long idProducto){
+        items.removeIf(item-> item.getProducto().getId().equals(idProducto)); 
+    }
 
     public int getTotal(){
         // FORMA IMPERATIVA

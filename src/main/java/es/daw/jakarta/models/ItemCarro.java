@@ -1,5 +1,4 @@
 package es.daw.jakarta.models;
-
 public class ItemCarro {
 
     // ATRIBUTOS

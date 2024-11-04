@@ -1,13 +1,9 @@
 package es.daw.jakarta.controllers;
-
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
-
 import es.daw.jakarta.services.ProductServiceImpl;
 import es.daw.jakarta.models.Producto;
 import es.daw.jakarta.services.ProductService;
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -33,12 +29,5 @@ public class ProductServlet extends HttpServlet {
         request.setAttribute("productos", productos);
         request.getRequestDispatcher("/productos.jsp").forward(request, response);
                 
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        // TODO: implement POST request handling
-        //doGet(request, response);
     }
 }

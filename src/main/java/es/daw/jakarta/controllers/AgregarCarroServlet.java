@@ -1,9 +1,6 @@
 package es.daw.jakarta.controllers;
-
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Optional;
-
 import es.daw.jakarta.models.Carro;
 import es.daw.jakarta.models.ItemCarro;
 import es.daw.jakarta.models.Producto;
@@ -25,7 +22,7 @@ public class AgregarCarroServlet extends HttpServlet {
             throws ServletException, IOException {
 
         // RECOGER LOS PARÁMETROS DE LA PETICIÓN URL...
-        Long id = Long.parseLong(request.getParameter("id"));
+        Long id = Long.parseLong(request.getParameter("id"));//desde productos.jsp 
 
 
         // LÓGICA DE NEGOCIO....
@@ -41,30 +38,16 @@ public class AgregarCarroServlet extends HttpServlet {
             HttpSession session = request.getSession();
 
             Carro carro;
-
-            // ----------------------------------
-            // FASE I: sin Listener
-            // Controlar si ya existe el objeto carro en la sesión
-            // if (session.getAttribute("carro") == null){
-            //     carro = new Carro();
-            //     session.setAttribute("carro", carro);
-            // }
-            // else{
-            //     carro = (Carro) session.getAttribute("carro");
-            // }
-            // ----------------------------------
-
+            
             // FASE II: con Listener
             carro = (Carro) session.getAttribute("carro");
             
             carro.addItemCarro(item);
-        }
-
         
-        // GENERAR UNA SALIDA DE RESPUESTA
-        // PENDIENTE REDIRIGIR AL SERVLET VER CARRO!!!!!!!!!
-        //response.sendRedirect("/carro/ver"); // error!!! no encuentra el servlet porque le falta el context path
-        //response.sendRedirect(getServletContext().getContextPath()+"/carro/ver");
+       
+
+    }
+        
         response.sendRedirect(request.getContextPath()+"/carro/ver");
 
         //getServletContext().getRequestDispatcher("/carro/ver").forward(request, response);

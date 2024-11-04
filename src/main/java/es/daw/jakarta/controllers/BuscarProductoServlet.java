@@ -25,7 +25,6 @@ public class BuscarProductoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // TODO: implement POST request handling
         // 1. recoger los parámetros del request
         String nombre_producto = request.getParameter("nombre_producto");
         nombre_producto = nombre_producto.trim();
